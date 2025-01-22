@@ -23,7 +23,7 @@ Age: Age of the patient.\
 Outcome: Target variable where 1 indicates the patient has diabetes and 0 indicates the patient does not.
 
 ## Technology Stack
-### Programming Language: Python\
+### Programming Language: Python
 ### Libraries:
 Pandas (for data manipulation)\
 Numpy (for numerical operations)\
@@ -37,7 +37,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 
 ## How to Run
 1. Clone the repository:
-git clone https://github.com/ReshmaMocherla/Diabetes-Prediction.git\
+git clone https://github.com/ReshmaMocherla/Diabetes-Prediction.git
 
 2. Navigate to the project directory:
 cd Diabetes-Prediction\
@@ -79,7 +79,7 @@ F1-Score: 0.68 - A balance between precision and recall.
 Model Improvement: You can explore more advanced models like Random Forest, Support Vector Machine (SVM), or Gradient Boosting for potentially better performance.\
 Hyperparameter Tuning: Use GridSearchCV or RandomizedSearchCV to tune the hyperparameters of the Logistic Regression model and improve performance.\
 Cross-Validation: Implement cross-validation techniques to validate the model on different subsets of the data.\
-Deployment: The model can be deployed using Flask or FastAPI to serve real-time predictions via a web interface.\
+Deployment: The model can be deployed using Flask or FastAPI to serve real-time predictions via a web interface.
 
 ## Project Links
 GitHub Repository: https://github.com/ReshmaMocherla/Diabetes-Prediction\
