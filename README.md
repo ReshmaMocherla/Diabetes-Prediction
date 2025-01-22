@@ -83,5 +83,5 @@ Cross-Validation: Implement cross-validation techniques to validate the model on
 Deployment: The model can be deployed using Flask or FastAPI to serve real-time predictions via a web interface.
 
 ## Project Links
-GitHub Repository: https://github.com/ReshmaMocherla/Diabetes-Prediction\
+GitHub Repository: https://github.com/ReshmaMocherla/Diabetes-Prediction \
 Kaggle Dataset: Pima Indians Diabetes Dataset
