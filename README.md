@@ -23,7 +23,8 @@ Age: Age of the patient.\
 Outcome: Target variable where 1 indicates the patient has diabetes and 0 indicates the patient does not.
 
 ## Technology Stack
-### Programming Language: Python
+### Programming Language:
+Python
 ### Libraries:
 Pandas (for data manipulation)\
 Numpy (for numerical operations)\
@@ -40,10 +41,10 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 git clone https://github.com/ReshmaMocherla/Diabetes-Prediction.git
 
 2. Navigate to the project directory:
-cd Diabetes-Prediction\
+cd Diabetes-Prediction
 
 3. Run the Python script or Jupyter Notebook to train the model:
-python diabetes_prediction.py\
+python diabetes_prediction.py
 
 4. Alternatively, if using a Jupyter Notebook:
 jupyter notebook
