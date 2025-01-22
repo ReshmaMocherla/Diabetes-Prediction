@@ -11,7 +11,7 @@ Source: Kaggle - Diabetes Dataset
 Number of Entries: 768
 Features: 8 features and 1 target variable (Outcome).
 
-## Features:
+## Features
 Pregnancies: Number of times the patient has been pregnant.
 Glucose: Plasma glucose concentration after 2 hours in an oral glucose tolerance test.
 BloodPressure: Diastolic blood pressure (mm Hg).
@@ -59,13 +59,13 @@ Splitting Data: The dataset was split into a training set (80%) and a test set (
 The logistic regression model was trained on the training set and evaluated on the test set using the following metrics:
 
 ### Evaluation Metrics:
-Accuracy: 82%
-Precision (Diabetes): 0.76
-Recall (Diabetes): 0.62
+Accuracy: 82% \
+Precision (Diabetes): 0.76\
+Recall (Diabetes): 0.62\
 F1-Score (Diabetes): 0.68
 
 ### Confusion Matrix:
-[[98  9]
+[[98  9]\
  [18 29]]
 A heatmap visualization of the confusion matrix is included to analyze the performance of the model more clearly.
 
