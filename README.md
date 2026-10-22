@@ -1,87 +1,140 @@
-# Diabetes Prediction Using Logistic Regression
-
-This project demonstrates how to build a machine learning model using Logistic Regression to predict whether a patient has Diabetes based on several health-related factors. The dataset used in this project is sourced from Kaggle and contains various attributes related to diabetes such as glucose levels, BMI, age, and insulin levels.
+# Diabetes Prediction Using Machine Learning
 
 ## Project Overview
 
-The goal of this project is to develop a binary classification model to predict if a patient has Diabetes (1) or No Diabetes (0). The model is built using the Logistic Regression algorithm, which is well-suited for binary classification tasks.
+This project uses machine learning to predict whether a person may have diabetes based on diagnostic measurements. It explores data preprocessing, missing-value treatment, model comparison, hyperparameter tuning, and model evaluation.
+
+The project was developed using Python and Jupyter Notebook as a practical application of machine learning classification techniques.
+
+## Objectives
+
+- Explore and understand the diabetes dataset.
+- Clean and preprocess the data before model training.
+- Handle potentially missing measurements represented by zero values.
+- Train and compare multiple classification models.
+- Improve model performance using `GridSearchCV` and cross-validation.
+- Evaluate the selected model using classification metrics and a confusion matrix.
+- Save and reload the trained model for predictions.
 
 ## Dataset
-Source: Kaggle - Diabetes Dataset\
-Number of Entries: 768\
-Features: 8 features and 1 target variable (Outcome).
 
-## Features
-Pregnancies: Number of times the patient has been pregnant.\
-Glucose: Plasma glucose concentration after 2 hours in an oral glucose tolerance test.\
-BloodPressure: Diastolic blood pressure (mm Hg).\
-SkinThickness: Triceps skin fold thickness (mm).\
-Insulin: 2-hour serum insulin (mu U/ml).\
-BMI: Body mass index (weight in kg / height in m²).\
-DiabetesPedigreeFunction: A function that represents the likelihood of diabetes based on family history.\
-Age: Age of the patient.\
-Outcome: Target variable where 1 indicates the patient has diabetes and 0 indicates the patient does not.
+**Dataset:** Pima Indians Diabetes Dataset  
+**File:** `diabetes.csv`
 
-## Technology Stack
-### Programming Language:
-Python
-### Libraries:
-Pandas (for data manipulation)\
-Numpy (for numerical operations)\
-Matplotlib & Seaborn (for data visualization)\
-Scikit-learn (for building and evaluating the model)\
-IDE: Jupyter Notebook / VS Code / PyCharm
+The dataset contains 768 records and 8 input features, along with a target column named `Outcome`.
 
-## Installation
-To run this project locally, you need to have Python installed along with the following libraries:
-pip install pandas numpy matplotlib seaborn scikit-learn
+The input features include:
 
-## How to Run
-1. Clone the repository:
-git clone https://github.com/ReshmaMocherla/Diabetes-Prediction.git
+- Pregnancies
+- Glucose
+- BloodPressure
+- SkinThickness
+- Insulin
+- BMI
+- DiabetesPedigreeFunction
+- Age
 
-2. Navigate to the project directory:
-cd Diabetes-Prediction
+The target variable, `Outcome`, indicates the diabetes classification: `0` for non-diabetic and `1` for diabetic.
 
-3. Run the Python script or Jupyter Notebook to train the model:
-python diabetes_prediction.py
+## Technologies Used
 
-4. Alternatively, if using a Jupyter Notebook:
-jupyter notebook
+- Python
+- Jupyter Notebook
+- Pandas and NumPy
+- Matplotlib and Seaborn
+- Scikit-learn
+- Joblib
 
-## Data Preprocessing
-The dataset is first loaded and explored. The following preprocessing steps were applied:\
-Missing Data: No missing data was found in the dataset.\
-Feature Scaling: The features were scaled using StandardScaler to standardize them and make them comparable across different units.\
-Splitting Data: The dataset was split into a training set (80%) and a test set (20%) for model training and evaluation.
+## Project Workflow
 
+1. **Data loading:** Load the CSV dataset into a Pandas DataFrame.
+2. **Exploratory data analysis:** Examine the dataset, feature distributions, and relationships between variables.
+3. **Data preprocessing:** Investigate zero values in Glucose, BloodPressure, SkinThickness, Insulin, and BMI, treating clinically implausible zeros as missing values where appropriate. Impute the affected values before training.
+4. **Model training:** Train and compare seven classification models.
+5. **Hyperparameter tuning:** Use `GridSearchCV` with 5-fold cross-validation to tune model parameters.
+6. **Model evaluation:** Evaluate the selected model using accuracy, precision, recall, F1-score, and a confusion matrix.
+7. **Model persistence:** Save the trained model using Joblib and verify that it can be loaded for predictions.
 
-## Model Building and Evaluation
-The logistic regression model was trained on the training set and evaluated on the test set using the following metrics:
+## Model Evaluation
 
-### Evaluation Metrics:
-Accuracy: 82% \
-Precision (Diabetes): 0.76\
-Recall (Diabetes): 0.62\
-F1-Score (Diabetes): 0.68
+The tuned Random Forest classifier achieved the following results.
 
-### Confusion Matrix:
-[[98  9]\
- [18 29]]\
-A heatmap visualization of the confusion matrix is included to analyze the performance of the model more clearly.
+### Cross-validation performance
 
-### Results:
-Accuracy: 82% - The model correctly predicted 82% of the instances.\
-Precision: 0.76 - 76% of the patients predicted to have diabetes actually had diabetes.\
-Recall: 0.62 - The model correctly identified 62% of patients who actually have diabetes.\
-F1-Score: 0.68 - A balance between precision and recall.
+| Metric | Score |
+|---|---:|
+| Accuracy | 76.55% |
+| Precision | 63.64% |
+| Recall | 77.10% |
+| F1-score | 69.67% |
 
-## Future Work
-Model Improvement: You can explore more advanced models like Random Forest, Support Vector Machine (SVM), or Gradient Boosting for potentially better performance.\
-Hyperparameter Tuning: Use GridSearchCV or RandomizedSearchCV to tune the hyperparameters of the Logistic Regression model and improve performance.\
-Cross-Validation: Implement cross-validation techniques to validate the model on different subsets of the data.\
-Deployment: The model can be deployed using Flask or FastAPI to serve real-time predictions via a web interface.
+### Test-set performance
 
-## Project Links
-GitHub Repository: https://github.com/ReshmaMocherla/Diabetes-Prediction \
-Kaggle Dataset: Pima Indians Diabetes Dataset
+| Metric | Score |
+|---|---:|
+| Accuracy | 74.68% |
+| Precision | 60.87% |
+| Recall | 77.78% |
+| F1-score | 68.29% |
+
+### Confusion Matrix
+
+| | Predicted: No Diabetes | Predicted: Diabetes |
+|---|---:|---:|
+| Actual: No Diabetes | 73 | 27 |
+| Actual: Diabetes | 12 | 42 |
+
+The model correctly classified 73 non-diabetic cases and 42 diabetic cases in the test set. It also produced 27 false positives and 12 false negatives.
+
+These results illustrate the trade-offs between identifying positive cases and avoiding incorrect positive predictions.
+
+## Saved Model
+
+The trained model was saved as:
+
+`diabetes_prediction_model.pkl`
+
+Joblib was used to save and reload the model, and a sample prediction was tested successfully.
+
+## How to Run the Project
+
+1. Clone or download this repository.
+2. Install the required libraries:
+
+   ```bash
+   pip install pandas numpy matplotlib seaborn scikit-learn joblib jupyter
+   ```
+
+3. Ensure `diabetes.csv` is available at the file path used in the notebook.
+4. Launch Jupyter Notebook:
+
+   ```bash
+   jupyter notebook
+   ```
+
+5. Open `Diabetes-Prediction.ipynb` and execute the cells in order.
+
+## Key Learnings
+
+- Data cleaning and preprocessing for real-world-style datasets.
+- Exploratory data analysis and feature understanding.
+- Classification model comparison.
+- Hyperparameter optimization using GridSearchCV.
+- Model evaluation using multiple performance metrics.
+- Saving and reusing trained machine learning models.
+
+## Limitations
+
+This project is an educational machine learning exercise, not a clinically validated diagnostic system. Its predictions should not be used as a substitute for professional medical evaluation. Model performance may vary across different populations and datasets.
+
+## Future Improvements
+
+- Perform additional feature analysis and model comparison.
+- Evaluate calibration and performance across different patient groups.
+- Improve reproducibility by documenting the complete preprocessing and prediction pipeline.
+- Develop an interactive application for demonstrating predictions, with appropriate medical disclaimers.
+
+---
+
+**Author:** Reshma Mocherla  
+**Project:** Diabetes Prediction Using Machine Learning
